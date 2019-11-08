@@ -1,0 +1,11 @@
+<div class="col s12 m10 l6">
+  <% @scholarships.each do |scholarship| %>
+    <a href="<%= scholarship.url %>">
+      <span><%= scholarship.name %></span>
+      <span><%= scholarship.url %></span>
+      <span><%= scholarship.start_date %></span>
+      <span><%= scholarship.close_date %></span>
+      <span><%= scholarship.status %></span>
+    </a>
+  <% end %>
+</div>
