@@ -1,11 +1,21 @@
-<div class="col s12 m10 l6">
+<div class="col s12 m10 l10 offset-l1">
+  <h5>自分に合った奨学金を探す</h5>
+  <%= form_tag(root_path,:method => 'get') do %>
+    <%= text_field_tag :search %>
+    <%= submit_tag 'この条件で探す', :name => nil, class:"waves-effect waves-light btn"%>
+  <% end %>
+
+  <h5>あなたに合った奨学金一覧</h5>
   <% @scholarships.each do |scholarship| %>
-    <a href="<%= scholarship.url %>">
-      <span><%= scholarship.name %></span>
-      <span><%= scholarship.url %></span>
-      <span><%= scholarship.start_date %></span>
-      <span><%= scholarship.close_date %></span>
-      <span><%= scholarship.status %></span>
-    </a>
+      <div class="card">
+        <a href="<%= scholarship.url %>">
+          <div class="card-content ">
+            <span class="card-title"><%= scholarship.name %></span>
+            <span><%= scholarship.start_date %></span>
+            <span><%= scholarship.close_date %></span>
+            <span><%= scholarship.status %></span>
+          </div>
+        </a>
+    </div>
   <% end %>
 </div>

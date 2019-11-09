@@ -3,17 +3,9 @@ require 'nokogiri'
 
 class Scholarship < ApplicationRecord
 
-  def scrapping(url)
-
-    charset = nil
-    html = open(url) do |f|
-      charset = f.charset
-      f.read
-    end
-
-    doc = Nokogiri::HTML.parse(html, nil, charset)
-
-    doc.title
+  def self.search(search)
+    return Scholarship.all unless search
+    Scholarship.where(['name LIKE ?', "%#{search}%"])
   end
 
 end
