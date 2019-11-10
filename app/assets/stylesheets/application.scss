@@ -14,7 +14,24 @@
  *= require_self
  */
 
+body{
+  font-family: sofia-pro, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #003354 !important;
+}
 nav{
-    padding: 0 5rem 0 5rem;
+  padding: 0 3.5rem 0 3.5rem;
+  box-shadow: none !important;
+}
+.container.content-wrapper{
+  margin-top:5%;
+  margin-bottom: 5%;
+}
+footer{
+  background-color:#003354 !important;;
 }
 
+.brand-logo{
+  font-family: sofia-pro, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #003354 !important;
+  font-weight: 500;
+}

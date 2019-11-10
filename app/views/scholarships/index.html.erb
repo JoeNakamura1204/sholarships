@@ -1,7 +1,15 @@
 <div class="col s12 m10 l10 offset-l1">
   <h5>自分に合った奨学金を探す</h5>
   <%= form_tag(root_path,:method => 'get') do %>
-    <%= text_field_tag :search %>
+    <%#= label :search, "出願期間から", :class=>"input-field" %>
+    <%#= text_field_tag "search", "",{class: "datepicker"} %>
+
+    <%#= label :close_date, "出願期間まで" %>
+    <%#= text_field_tag :close_date, "",{class: "datepicker"} %>
+
+    <%= label :search, "あなたの現在の状況を選択してください"%>
+    <%= select_tag :search, options_for_select([["現在、高校生",1],["現在、大学生",2]]) %>
+    <%#= text_field_tag :search %>
     <%= submit_tag 'この条件で探す', :name => nil, class:"waves-effect waves-light btn"%>
   <% end %>
 
@@ -19,3 +27,12 @@
     </div>
   <% end %>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+        $('.datepicker').datepicker();
+    });
+    $(document).ready(function(){
+        $('select').formSelect();
+    });
+</script>
