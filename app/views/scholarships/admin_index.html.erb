@@ -1,0 +1,29 @@
+<div class="col s12 m10 l10 offset-l1">
+  <h5>登録済みの奨学金一覧</h5>
+  <% @scholarships.each do |scholarship| %>
+      <div class="card">
+        <div class="card-content ">
+          <a href="<%= scholarship.url %>">
+            <span class="card-title"><%= scholarship.name %></span>
+          </a>
+          <span>出願期間：<%= scholarship.start_date %>から</span>
+          <span><%= scholarship.close_date %>まで</span>
+        </div>
+        <div class="card-action">
+          <a href="#"><i class="material-icons">create</i></a>
+          <%= link_to scholarship_path(scholarship), method: :delete ,class:"material-icons", data: { confirm: "You sure?" }  do %>
+            <i class="material-icons">delete</i>
+          <% end %>
+        </div>
+    </div>
+  <% end %>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+        $('.datepicker').datepicker();
+    });
+    $(document).ready(function(){
+        $('select').formSelect();
+    });
+</script>

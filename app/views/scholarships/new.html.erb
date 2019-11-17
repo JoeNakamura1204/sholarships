@@ -15,9 +15,15 @@
       <%= form.text_field :close_date , :class=>"datepicker"%>
 
       <%= form.label :status, "あなたの現在の状況を選択してください"%>
-      <%= form.select :status, [["高校生",1],["大学生",2]],:class=>"input-field" %>
+      <%= form.select :status, [["高校生","high_school"],["大学生","college"]],:class=>"input-field" %>
 
-      <%= form.submit '追加してやる！', :class=>"blue-text waves-effect waves-light btn-large " %>
+      <%= form.label :types, "希望する奨学金の型をおしえてください"%>
+      <%= form.select :types, [["貸与型","loan"],["給付型","grant"]],:class=>"input-field" %>
+
+      <%= form.label :purposes, "奨学金の目的をおしえてください"%>
+      <%= form.select :purposes, [["生活費のため","living"],["留学のため","abroad"]],:class=>"input-field" %>
+
+      <%= form.submit '奨学金を追加する', :class=>"waves-effect waves-light btn-large " %>
     <% end %>
 </div>
 

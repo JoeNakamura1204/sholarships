@@ -12,6 +12,7 @@
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -24,7 +25,12 @@
     <div>
       <a href="/" class="brand-logo">Scholarship</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down blue-text accent-4">
-        <li><a href="/scholarships/new" class="blue-text accent-4">Admin</a></li>
+        <li>
+          <%= link_to 'admin', new_scholarship_path, class:"blue-text accent-4" %>
+        </li>
+        <li>
+          <%= link_to 'admin_index', admin_index_path, class:"blue-text accent-4" %>
+        </li>
       </ul>
     </div>
   </nav>
