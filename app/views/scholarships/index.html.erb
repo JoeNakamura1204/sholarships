@@ -1,30 +1,42 @@
 <div class="col s12 m10 l10 offset-l1">
-  <h5>自分に合った奨学金を探す</h5>
-  <%= form_tag(root_path,:method => 'get') do %>
+  <section class="row">
+    <h5>自分に合った奨学金を探す</h5>
+    <%= form_tag(root_path,:method => 'get') do %>
 
-    <%= label :search, "あなたの現在の状況を選択してください"%>
-    <%= select_tag :search, options_for_select([["現在、高校生",1],["現在、大学生",2]]) %>
-    <%= label :types, "希望する奨学金の型をおしえてください"%>
-    <%= select_tag :types, options_for_select([["貸与型",1],["給付型",2]]) %>
-    <%= label :purposes, "奨学金の目的をおしえてください"%>
-    <%= select_tag :purposes, options_for_select([["生活費のため",1],["留学のため",2]]) %>
-    <%= submit_tag 'この条件で探す', :name => nil, class:"waves-effect waves-light btn"%>
-  <% end %>
-
-  <h5>あなたに合った奨学金一覧</h5>
-  <% @scholarships.each do |scholarship| %>
-      <div class="card">
-        <a href="<%= scholarship.url %>">
-          <div class="card-content ">
-            <span class="card-title"><%= scholarship.name %></span>
-            <span>出願期間：<%= scholarship.start_date %>から</span>
-            <span><%= scholarship.close_date %>まで</span>
-            <span><%= scholarship.types %></span>
-            <span><%= scholarship.purposes %></span>
-          </div>
-        </a>
-    </div>
-  <% end %>
+      <div class="col s12 m4 l4">
+        <%= label :search, "あなたの現在の状況を選択してください"%>
+        <%= select_tag :search, options_for_select([["現在、高校生",1],["現在、大学生",2]],:prompt => "選択してください") %>
+      </div>
+      <div class="col s12 m4 l4">
+        <%= label :types, "希望する奨学金の型をおしえてください"%>
+        <%= select_tag :types, options_for_select([["貸与型",1],["給付型",2]]) %>
+      </div>
+      <div class="col s12 m4 l4">
+        <%= label :purposes, "奨学金の目的をおしえてください"%>
+        <%= select_tag :purposes, options_for_select([["生活費のため",1],["留学のため",2]]) %>
+      </div>
+      <div class="col s12 m4 l4">
+        <%= submit_tag 'この条件で探す', :name => nil, class:"waves-effect waves-light btn"%>
+      </div>
+    <% end %>
+  </section>
+  <div class="divider"></div>
+  <section>
+    <h5 >あなたに合った奨学金一覧</h5>
+    <% @scholarships.each do |scholarship| %>
+        <div class="card">
+          <a href="<%= scholarship.url %>">
+            <div class="card-content ">
+              <span class="card-title"><%= scholarship.name %></span>
+              <span>出願期間：<%= scholarship.start_date %>から</span>
+              <span><%= scholarship.close_date %>まで</span>
+              <span><%= scholarship.types %></span>
+              <span><%= scholarship.purposes %></span>
+            </div>
+          </a>
+      </div>
+    <% end %>
+  </section>
 </div>
 
 <script type="text/javascript" charset="utf-8">
