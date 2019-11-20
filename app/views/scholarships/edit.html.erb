@@ -1,0 +1,37 @@
+<div class="form-wrapper col s12 m8 l8 offset-l2">
+    <h5>奨学金情報を更新する</h5>
+    <%= form_for @scholarship do |form| %>
+
+      <%= form.label :name,"奨学金の名前", :class=>"input-field"%>
+      <%= form.text_field :name, value: @scholarship.name, :class=>"input-field" %>
+
+      <%= form.label :url,"奨学金のURL", :class=>"input-field" %>
+      <%= form.text_field :url,value: @scholarship.url, :class=>"input-field" %>
+
+      <%= form.label :start_date, "出願期間から", :class=>"input-field" %>
+      <%= form.text_field :start_date, value: @scholarship.start_date, :class=>"datepicker"%>
+
+      <%= form.label :close_date, "出願期間まで", :class=>"input-field" %>
+      <%= form.text_field :close_date , value: @scholarship.close_date, :class=>"datepicker"%>
+
+      <%= form.label :status, "あなたの現在の状況を選択してください"%>
+      <%= form.select :status, [["高校生","high_school"],["大学生","college"]],value: @scholarship.status, :class=>"input-field" %>
+
+      <%= form.label :types, "希望する奨学金の型をおしえてください"%>
+      <%= form.select :types, [["貸与型","loan"],["給付型","grant"]],value: @scholarship.types, :class=>"input-field" %>
+
+      <%= form.label :purposes, "奨学金の目的をおしえてください"%>
+      <%= form.select :purposes, [["生活費のため","living"],["留学のため","abroad"]],value: @scholarship.purposes, :class=>"input-field" %>
+
+      <%= form.submit '奨学金を更新する', :class=>"waves-effect waves-light btn-large " %>
+    <% end %>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+        $('.datepicker').datepicker();
+    });
+    $(document).ready(function(){
+        $('select').formSelect();
+    });
+</script>

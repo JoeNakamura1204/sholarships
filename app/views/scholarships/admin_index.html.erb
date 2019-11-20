@@ -10,7 +10,10 @@
           <span><%= scholarship.close_date %>まで</span>
         </div>
         <div class="card-action">
-          <a href="#"><i class="material-icons">create</i></a>
+          <%= link_to  edit_scholarship_path(scholarship),class:"material-icons" do %>
+            <i class="material-icons">create</i>
+          <% end %>
+
           <%= link_to scholarship_path(scholarship), method: :delete ,class:"material-icons", data: { confirm: "You sure?" }  do %>
             <i class="material-icons">delete</i>
           <% end %>

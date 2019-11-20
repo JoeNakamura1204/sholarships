@@ -21,6 +21,16 @@ class ScholarshipsController < ApplicationController
     @scholarships = Scholarship.all
   end
 
+  def edit
+    @scholarship = Scholarship.find_by(id: params[:id])
+  end
+
+  def update
+    @scholarship = Scholarship.find_by(id: params[:id])
+    @scholarship = Scholarship.update(scholarship_params)
+    redirect_to :admin_index
+  end
+
   def destroy
     Scholarship.find_by(id: params[:id]).destroy
     redirect_to :admin_index
