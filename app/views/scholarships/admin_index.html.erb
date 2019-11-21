@@ -6,8 +6,10 @@
           <a href="<%= scholarship.url %>">
             <span class="card-title"><%= scholarship.name %></span>
           </a>
-          <span>出願期間：<%= scholarship.start_date %>から</span>
           <span><%= scholarship.close_date %>まで</span>
+          定員：<span><%= scholarship.capacity %>名</span>
+          <span><%= scholarship.types %></span>
+          <span><%= scholarship.purposes %></span>
         </div>
         <div class="card-action">
           <%= link_to  edit_scholarship_path(scholarship),class:"material-icons" do %>

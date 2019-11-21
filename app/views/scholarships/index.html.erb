@@ -23,19 +23,25 @@
   <div class="divider"></div>
   <section>
     <h5 >あなたに合った奨学金一覧</h5>
-    <% @scholarships.each do |scholarship| %>
+    <% if @scholarships.present? %>
+      <% @scholarships.each do |scholarship| %>
         <div class="card">
           <a href="<%= scholarship.url %>">
             <div class="card-content ">
               <span class="card-title"><%= scholarship.name %></span>
               <span>出願期間：<%= scholarship.start_date %>から</span>
               <span><%= scholarship.close_date %>まで</span>
+              定員：<span><%= scholarship.capacity %>名</span>
               <span><%= scholarship.types %></span>
               <span><%= scholarship.purposes %></span>
             </div>
           </a>
-      </div>
+        </div>
+      <% end %>
+      <% else %>
+        <div class="card-panel light-blue lighten-5">現在、その条件に当てはまる奨学金はみつかりませんでした...</div>
     <% end %>
+
   </section>
 </div>
 

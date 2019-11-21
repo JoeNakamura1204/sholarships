@@ -23,6 +23,9 @@
       <%= form.label :purposes, "奨学金の目的をおしえてください"%>
       <%= form.select :purposes, [["生活費のため","living"],["留学のため","abroad"]],:class=>"input-field" %>
 
+      <%= form.label :capacity, "定員を教えてください"%>
+      <%= form.number_field :capacity, :class=>"input-field" %>
+
       <%= form.submit '奨学金を追加する', :class=>"waves-effect waves-light btn-large " %>
     <% end %>
 </div>

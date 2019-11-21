@@ -39,7 +39,7 @@ class ScholarshipsController < ApplicationController
   private
 
   def scholarship_params
-    params.require(:scholarship).permit(:name, :url, :start_date, :close_date, :status, :types, :purposes)
+    params.require(:scholarship).permit(:name, :url, :start_date, :close_date, :status, :types, :purposes, :capacity)
   end
 
 end
