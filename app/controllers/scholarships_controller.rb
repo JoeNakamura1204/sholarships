@@ -3,7 +3,7 @@ class ScholarshipsController < ApplicationController
   def index
     close_date = Time.now
     @scholarships = Scholarship.search(params[:search], close_date, params[:types], params[:purposes])
-    # binding.pry
+    @params = params
   end
 
   def new
